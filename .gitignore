@@ -1,3 +1,9 @@
+# Arquivos com dados sensiveis
+container_exec_bd.sh
+.env-dados
+variaveis.sh
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
