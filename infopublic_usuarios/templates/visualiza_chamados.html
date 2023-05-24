@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+    {% block head %}
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bulma/css/bulma.css') }}">
+    {% endblock %}
+        <script>
+          function fechaChamado(valor) {
+            let url = "/chamado_fechado/" + valor
+            location.href = url
+          }
+        </script>
+    </head>
+    <body>
+    {% block navbar %}
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+             <a class="navbar-item" href="https://infopublic.com.br">
+              <img src="{{ url_for('static', filename='img/LogoSitePequena.png') }}">
+             </a>
+            </div>
+        
+            <div class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" href="{{ url_for('main.index') }}">
+                  Home
+                </a>
+                <a class="navbar-item" href="{{ url_for('main.cadastro') }}">
+                  Cadastro
+                </a>
+                <a class="navbar-item" href="{{ url_for('main.solicita_cadastro') }}">
+                  Solicitar Cadastro de Usuário
+                </a>
+                <a class="navbar-item" href="{{ url_for('main.fila_chamados') }}">
+                  Fila de chamados
+                </a>
+              </div>
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  {{ current_user }}
+                </div>
+                <div class="navbar-item">
+                  <div class="field is-grouped">
+                    <p class="control">
+                      {% if current_user.is_authenticated %}
+                      <a class="button is-primary" href="{{ url_for('auth.logout') }}">
+                        <span>Log Out</span>
+                      </a>
+                      {% else %}
+                      <a class="button is-primary" href="{{ url_for('auth.login') }}">
+                        <span>Log In</span>
+                      </a>
+                      {% endif %}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </nav>
+    {% endblock %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="box">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+    
+        <div class="container">
+            <section class="articles">
+                <div class="column is-8 is-offset-2">
+                    <!--START ARTICLE-->
+                    {% block conteudo %}
+                    <div class="card article">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content has-text-centered">
+                                    <p class="title article-title">
+                                        {{ assunto }} - Id: {{ id }}
+                                    </p>
+                                    <div class="tags has-addons level-item">
+                                        <span class="tag is-rounded is-info">
+                                          {% if status == 1 %}
+                                            Em aberto
+                                          {% elif status == 2 %}
+                                            Em andamento
+                                          {% elif status == 3%}
+                                            Fechado
+                                          {% endif %}
+                                        </span>
+                                        <span class="tag is-rounded">{{ data }}</span>
+                                    </div>   
+                                </div>
+                            </div>
+                            <div class="content article-body">
+                              <table>
+                                  <thead>
+                                    <tr>
+                                      <td>
+                                        <div class="tags has-addons level-item">
+                                          <span class="tag is-info">
+                                            CPF
+                                          </span>
+                                          <span class="tag is-rounded">{{ cpf }}</span>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="tags has-addons level-item">
+                                          <span class="tag is-info">
+                                            Nome
+                                          </span>
+                                          <span class="tag is-rounded">{{ nome }}</span>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="tags has-addons level-item">
+                                          <span class="tag is-info">
+                                            Sistema
+                                          </span>
+                                          <span class="tag is-rounded">{{ sistema }}</span>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="tags has-addons level-item">
+                                          <span class="tag is-info">
+                                            Entidade
+                                          </span>
+                                          <span class="tag is-rounded">{{ entidade }}</span>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="tags has-addons level-item">
+                                          <span class="tag is-info">
+                                            Autor
+                                          </span>
+                                          <span class="tag is-rounded">{{ autor_chamado }}</span>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </thead>
+                              </table>
+                              <div class="block">
+                                <p class="subtitle">
+                                  Descrição:
+                                </p>
+                                {{ descricao }}
+                              </div>
+                              <div class="block">
+                                <p class="subtitle">
+                                  Detalhes:
+                                </p>
+                                {{ detalhes }}
+                              </div>
+                              <div class="block">
+                                <p class="subtitle">
+                                  Última interação do suporte:
+                                </p>
+                                {{ solucao_chamado }}
+                              </div>
+                              <form method="POST">
+                                <div class="field">
+                                  <label class="label" for="solucao">Solução do chamado:</label>
+                                  <div class="control">
+                                      <textarea class="textarea" value="{{ request.form['solucao'] }}"
+                                      name="solucao"></textarea>
+                                  </div>
+                              </div>
+                              <button class="button is-primary" type="submit">Atualizar chamado</button>
+                              </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END Article-->
+                    {% if status != 3 %}
+                      <div class="block">
+                        <button class="button is-primary" value="{{ id }}" onclick="fechaChamado(this.value)">Fechar chamado</button>
+                      </div>
+                    {% endif %}
+                    {% endblock %}
+                </div>
+            </section>
+        </div>
+
+
+
+
+
+        <section class="section">
+            <div class="footer">
+                <div class="container has-text-centered">
+                  <p style="color: black;">
+                    <strong>PJSuporte-Web</strong> por E.<strong>Souza</strong>. Versão Beta - Teste<br>
+                    <a href="https://www.buymeacoffee.com/souza" target="_blank"><small style="color: gray;">buy me a coffee</small></a>
+                  </p> 
+                </div>
+              </div>
+        </section>
+    </body>
+</html>

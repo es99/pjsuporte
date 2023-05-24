@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}infopublic-usuarios{% endblock %}
+{% block sub_navigation %}
+<nav class="level">
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Users Cadastrados</p>
+            <p class="title">{{ num_itens }}</p>
+        </div>
+    </div>
+    <div class="level-item has-text-centered">
+        <div>
+            <p class="heading">Chamados Fechados</p>
+            <p class="title">{{ chamados_fechados }}</p>
+        </div>
+    </div>
+  </nav>
+{% endblock %}
+{% block content %}
+    <div class="columns">
+        <div class="column">
+            <div class="box">
+                <div class="notification is-link">
+                    Digite ao lado o CPF do usuário para buscar
+                    as informações.
+                  </div>
+            </div>
+        </div>
+        <div class="column">
+            <form class="box" method="POST">
+                <div class="field">
+                    <label class="label" for="cpf">CPF:</label>
+                    <div class="control">
+                        <input class="input" value="{{ request.form['cpf'] }}"  name="cpf" type="text" placeholder="apenas numeros">
+                    </div>
+                </div>
+                <button class="button is-primary">Buscar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

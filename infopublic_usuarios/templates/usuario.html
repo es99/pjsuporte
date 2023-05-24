@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title%}Informacoes do usuario{% endblock %}
+{% block content %}
+<div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+        <div class="card">
+            <div class="card-content">
+              <p class="title" style="color: black;">
+                {{ item['nome'] }}
+              </p>
+              <p class="subtitle" style="color: black;">
+                login: infopublicpb\{{ item['cpf'] }}<br>
+                senha TS: {{ item['senha_ts'] }} <br>
+                senha do sistema: {{ item['senha_sistema'] }}
+              </p>
+              <p class="subtitle" style="color: gray;">
+                {% if item['entidade'] %} {{ item['entidade'] }} - {% endif %}
+                {% if item['sistema'] %}
+                  {% for sistema in item['sistema'] %}
+                    {{ sistema }} 
+                  {% endfor %}
+                {% endif %}<br>
+                {{ item['email'] }}
+                {{ item['tel'] }}<br>
+                {% if item['data_cadastro'] %} 
+                  data do cadastro: {{ item['data_cadastro'] }}
+                {% endif %}
+              </p>
+            </div>
+            <footer class="card-footer">
+              <form class="box" method="POST">
+                <button class="button is-rounded">Enviar credenciais</button>
+              </form>
+            </footer>
+          </div>
+    </div>
+</div>
+{% endblock %}

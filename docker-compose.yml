@@ -1,0 +1,20 @@
+version: '3'
+services:
+  pjsuporte:
+    image: esouza99/pjsuporte:1.0
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    links:
+      - dados:dbserver
+    restart: always
+    depends_on:
+      - dados
+  dados:
+    image: mariadb:latest
+    env_file:
+      - .env-dados
+    ports:
+      - "8001:3306"
+    restart: always

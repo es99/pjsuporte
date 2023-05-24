@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <meta charset='utf-8'>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bulma/css/bulma.css') }}">
+    {% endblock %}
+</head>
+<body>
+  {% block navigation %}
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+     <a class="navbar-item" href="https://infopublic.com.br">
+      <img src="{{ url_for('static', filename='img/LogoSitePequena.png') }}">
+     </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="{{ url_for('main.index') }}">
+          Home
+        </a>
+        <a class="navbar-item" href="{{ url_for('main.cadastro') }}">
+          Cadastro
+        </a>
+        <a class="navbar-item" href="{{ url_for('main.solicita_cadastro') }}">
+          Solicitar Cadastro de Usuário
+        </a>
+        <a class="navbar-item" href="{{ url_for('main.fila_chamados') }}">
+          Fila de chamados
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          {{ current_user }}
+        </div>
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              {% if current_user.is_authenticated %}
+              <a class="button is-primary" href="{{ url_for('auth.logout') }}">
+                <span>Log Out</span>
+              </a>
+              {% else %}
+              <a class="button is-primary" href="{{ url_for('auth.login') }}">
+                <span>Log In</span>
+              </a>
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  {% endblock %}
+  {% block sub_navigation %}{% endblock %}
+  {% block flash_messages %}
+  <section class="hero is-large is-info">
+    <div class="hero-body">
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="box">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+    </div>
+ 
+    <!-- Hero footer: will stick at the bottom -->
+
+    <div class="hero-foot">
+      <div class="footer">
+        <div class="container has-text-centered">
+          <p style="color: black;">
+            <strong>PJSuporte-Web</strong> por E.<strong>Souza</strong>. Versão Beta - Teste<br>
+            <a href="https://www.buymeacoffee.com/souza" target="_blank"><small style="color: gray;">buy me a coffee</small></a>
+          </p> 
+        </div>
+      </div>
+  </div>
+  </section>
+  
+</body>
+</html>

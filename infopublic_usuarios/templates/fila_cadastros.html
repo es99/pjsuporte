@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Fila cadastros{% endblock %}
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>CPF(id)</th>
+            <th>Nome</th>
+            <th>Entidade</th>
+            <th>Sistema</th>
+            <th>Email</th>
+            <th>Tel</th>
+            <th>RG</th>
+            <th>Comentário</th>
+            <th>Abertura</th>
+            <th>Autor</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+        <tr>
+            <td>
+                {% if row['status'] == 1 %}
+                    Aberto
+                {% endif %}
+            </td>
+            <td>{{ row['cpf'] }}</td>
+            <td>{{ row['nome'] }}</td>
+            <td>{{ row['entidade'] }}</td>
+            <td>
+                {% for sistema in row['sistema'] %}
+                    {{ sistema }}
+                {% endfor %}
+            </td>
+            <td>{{ row['email'] }}</td>
+            <td>{{ row['tel'] }}</td>
+            <td>{{ row['rg'] }}</td>
+            <td>{{ row['comentario'] }}</td>
+            <td>{{ row['data_abertura'] }}</td>
+            <td>{{ row['author'] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

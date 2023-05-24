@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Fila cadastros{% endblock %}
+{% block head %}
+{{ super() }}
+<script>
+    function pegaTicket(value_id) {
+        let url = "/chamado/" + value_id
+        location.href = url
+    }
+</script>
+{% endblock %}
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <th>Status</th>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Entidade</th>
+            <th>Sistema</th>
+            <th>Assunto</th>
+            <th>Autor</th>
+            <th>Data Abertura</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+        {% if row['status'] != 3 %}
+            <tr>
+                <td>{{ row['id'] }}</td>
+                <td>
+                    {% if row['status'] == 1 %}
+                        <span class="tag is-rounded is-warning">Em aberto</span>
+                    {% elif row['status'] == 2 %}
+                    <span class="tag is-rounded is-info">Em andamento</span>
+                    {% endif %}
+                </td>
+                <td>{{ row['cpf'] }}</td>
+                <td>{{ row['nome'] }}</td>
+                <td>{{ row['entidade'] }}</td>
+                <td>{{ row['sistema'] }}</td> 
+                <td>{{ row['assunto'] }}</td>
+                <td>{{ row['author'] }}</td>
+                <td>{{ row['data'] }}</td>
+                <td>
+                    <button class="button is-primary is-outlined" value="{{ row['id'] }}" onclick="pegaTicket(this.value)">
+                        Visualizar
+                    </button>
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('main.lista_chamados_fechados') }}">Visualizar chamados fechados</a>
+{% endblock %}

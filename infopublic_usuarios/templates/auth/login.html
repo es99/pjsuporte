@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block navigation %}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+     <a class="navbar-item" href="https://infopublic.com.br">
+      <img src="{{ url_for('static', filename='img/LogoSitePequena.png') }}">
+     </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+                <a class="button is-primary" href="{{ url_for('auth.register') }}">
+                    <span>Registrar</span>
+                </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+{% endblock %}
+{% block content %}
+<div class="columns">
+    <div class="column">
+      <div class="content">
+        <h1 class="title">PJSuporte Infopublic</h1>
+        <h2 class="subtitle">Sistema de informação de usuários</h2>
+      </div>
+    </div>
+    <div class="column is-three-fifths">
+      <form class="box" method="POST">
+        <div class="field">
+          <label class="label" for="login">Login</label>
+          <div class="control has-icons-left">
+            <input class="input" name="login" value="{{ request.form['login'] }}" type="text" placeholder="inserir cpf">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left">
+            <label class="label" for="password">Senha</label>
+            <input class="input" name="password" type="password" value="{{ request.form['password'] }}" placeholder="********">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+      
+        <button class="button is-primary" type="submit">Log In</button>
+      </form>
+    </div>
+    </div>
+{% endblock %}

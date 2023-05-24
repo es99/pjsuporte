@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Solicitação cadastro{% endblock %}
+{% block content %}
+<div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+        <div class="box">
+            <p>
+                * - Item Obrigatório <br>
+                <strong>Apenas para solicitação de cadastro de usuários que não existem na pesquisa por CPF!</strong>
+            </p>
+        </div>
+        <form class="box" method="POST">
+    <div class="field">
+        <label class="label" for="cpf">CPF*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['cpf'] }}"  name="cpf" type="text">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="nome">Nome Completo*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['nome'] }}" name="nome" type="text">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="email">Email*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['email'] }}" name="email" type="email">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="entidade">Entidade*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['entidade'] }}" name="entidade" type="text">
+        </div>
+    </div>
+    <fieldset>
+    <label class="label">Sistema*:</label>
+    <label class="checkbox" for="PJPCTB">
+        <input type="checkbox" id="PJPCTB" name="sistema" value="PJPCTB">
+        PJPCTB
+      </label>
+
+    <label class="checkbox" for="PJFolha">
+        <input type="checkbox" id="PJFolha" name="sistema" value="PJFolha">
+        PJFolha
+    </label>
+
+    <label class="checkbox" for="Tributos">
+        <input type="checkbox" id="Tributos" name="sistema" value="Tributos">
+        Tributos
+    </label>
+
+    <label class="checkbox" for="PJFrota">
+        <input type="checkbox" id="PJFrota" name="sistema" value="PJFrota">
+        PJFrota
+    </label>
+
+    <label class="checkbox" for="PJCheque">
+        <input type="checkbox" id="PJCheque" name="sistema" value="PJCheque">
+        PJCheque
+    </label>
+
+    <label class="checkbox" for="PJDoacao">
+        <input type="checkbox" id="PJDoacao" name="sistema" value="PJDoacao">
+        PJDoacao
+    </label>
+    </fieldset>
+    <div class="field">
+        <label class="label" for="tel">Tel*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['tel'] }}" name="tel" type="text">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="rg">RG:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['rg'] }}" name="rg" type="text">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="comentario">Comentário (Opcional):</label>
+        <div class="control">
+            <textarea class="textarea" value="{{ request.form['comentario'] }}"
+            name="comentario"></textarea>
+        </div>
+    </div>
+
+    <button class="button is-primary" type="submit">Enviar solicitação</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

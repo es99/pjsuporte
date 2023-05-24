@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Registro{% endblock %}
+{% block navigation %}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+     <a class="navbar-item" href="https://infopublic.com.br">
+      <img src="{{ url_for('static', filename='img/LogoSitePequena.png') }}">
+     </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+                
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+{% endblock %}
+{% block content %}
+<div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+        <div class="box">
+            <p>
+                * - Item Obrigatório
+            </p>
+        </div>
+        <form class="box" method="POST">
+    <div class="field">
+        <label class="label" for="cpf">CPF*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['cpf'] }}"  name="cpf" type="text" placeholder="Ex: 000.000.000-00">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="nome">Nome Completo*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['nome'] }}" name="nome" type="text" placeholder="Ex: Lais Abreu">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="email">Email*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['email'] }}" name="email" type="email" placeholder="Ex: user@gmail.com">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="password">Senha*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['password'] }}" name="password", type="password" 
+            placeholder="obrigatório mais de 6 caracteres">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="confirma_password">Confirmar senha*:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['confirma_password'] }}" name="confirma_password", type="password">
+        </div>
+    </div>
+    
+
+
+    <button class="button is-primary" type="submit">Registrar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,4 @@
+.env
+.env-dados
+variaveis.sh
+container_exec_bd.sh
