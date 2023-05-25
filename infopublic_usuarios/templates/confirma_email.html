@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Confirmação de email{% endblock%}
+
+{% block content %}
+<div class="card">
+    <div class="card-content">
+        <p class="title" style="color: black;">
+            E-mail enviado com sucesso!
+        </p>
+        <p class="subtitle" style="color:gray">
+            credenciais enviadas para: <span style="color: black;">{{ item['email'] }}</span>
+        </p>
+    </div>
+    <footer class="card-footer">
+        <p class="card-footer-item">
+            <span>
+                <a href="{{ url_for('main.user', cpf_num=item['cpf']) }}">Voltar</a>
+            </span>
+        </p>
+    </footer>
+</div>
+{% endblock %}

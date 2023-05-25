@@ -37,6 +37,15 @@ def index():
         return redirect(url_for('main.index'))
     return render_template('index.html', num_itens = contagem_de_itens, chamados_fechados = chamados_fechados_count)
 
+@main.route('/mail_confirma/<string:cpf>', methods=['GET', 'POST'])
+@login_required
+def email_confirma(cpf):
+    usuario = {'cpf': cpf}
+    response = table.get_item(Key=usuario)
+    item = response['Item']
+
+    return render_template('confirma_email.html', item=item)
+
 
 @main.route('/user/<string:cpf_num>', methods=['GET', 'POST'])
 @login_required
@@ -44,13 +53,7 @@ def user(cpf_num):
     usuario = dict(cpf=cpf_num)
     response = table.get_item(Key=usuario)
     item = response['Item']
-    if request.method == 'POST':
-        nome = item['nome']
-        senha_ts = item['senha_ts']
-        senha_sistema = item['senha_sistema']
-        email = item['email']
-        send_email(to=email, nome=nome, cpf=cpf_num, senha=senha_ts,
-            senha_sistema=senha_sistema)       
+
     return render_template('usuario.html', item=item)
 
 
