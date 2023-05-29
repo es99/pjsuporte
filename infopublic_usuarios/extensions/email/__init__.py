@@ -16,4 +16,7 @@ def send_email(to, **kwargs):
     msg = Message(subject, sender=sender, recipients=[to])
     msg.body = msg_textplain.mensagem_text(nome=kwargs['nome'], cpf=kwargs['cpf'],
                                 senha_ts=kwargs['senha_ts'], senha_sistema=kwargs['senha_sistema'])
+    msg.html = render_template('template-email.html', nome=kwargs['nome'],
+                        cpf=kwargs['cpf'], senha_ts=kwargs['senha_ts'], 
+                        senha_sistema=kwargs['senha_sistema'])
     mail.send(msg)

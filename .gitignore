@@ -3,6 +3,7 @@ container_exec_bd.sh
 .env-dados
 variaveis.sh
 .env
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
