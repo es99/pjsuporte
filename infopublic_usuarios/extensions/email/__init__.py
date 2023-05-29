@@ -9,11 +9,11 @@ def init_app(app):
     mail.init_app(app)
 
 #def send_mail(to, nome, cpf, senha, senha_sistema):
-def send_email(to, nome, cpf, senha, senha_sistema):
+def send_email(to, **kwargs):
     subject = '[Suporte Infopublic] - Credenciais de Acesso'
     sender = 'Suporte <suporte@infopublic.com.br>'
 
     msg = Message(subject, sender=sender, recipients=[to])
-    msg.body = msg_textplain.mensagem_text(nome=nome, cpf=cpf, senha=senha,
-                                    senha_sistema=senha_sistema)
+    msg.body = msg_textplain.mensagem_text(nome=kwargs['nome'], cpf=kwargs['cpf'],
+                                senha_ts=kwargs['senha_ts'], senha_sistema=kwargs['senha_sistema'])
     mail.send(msg)

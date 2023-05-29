@@ -29,7 +29,7 @@
             </div>
             <footer class="card-footer">
               
-              <form class="box" method="POST" action="{{ url_for('main.email_confirma', cpf=item['cpf']) }}">
+              <form class="box" method="POST" action="{{ url_for('main.user', cpf_num=item['cpf']) }}">
                 <button class="button" type="submit"><span style="font-weight: bold;">Enviar credenciais</span></button>
               </form>
               

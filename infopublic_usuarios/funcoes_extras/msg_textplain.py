@@ -1,11 +1,11 @@
-def mensagem_text(nome, cpf, senha, senha_sistema):
+def mensagem_text(**kwargs):
     msg = f"""
-    Olá {nome},
+    Olá {kwargs['nome']},
 
     Segue abaixo suas credenciais de login e senha para acesso aos nossos sistemas na nuvem:
-    login: infopublicpb\{cpf}
-    senha TS: {senha}
-    senha do sistema: {senha_sistema}
+    login: infopublicpb\{kwargs['cpf']}
+    senha TS: {kwargs['senha_ts']}
+    senha do sistema: {kwargs['senha_sistema']}
 
 
     Instruções:

@@ -53,7 +53,18 @@ def user(cpf_num):
     usuario = dict(cpf=cpf_num)
     response = table.get_item(Key=usuario)
     item = response['Item']
-
+    if request.method == "POST":
+        email = item['email']
+        if not email:
+            flash("O usuário em questão não possui o campo email preenchido")
+        else:
+            dados = dict(nome=item['nome'], cpf=item['cpf'],
+                         senha_ts=item['senha_ts'], senha_sistema=item['senha_sistema'])
+            try:
+                send_email(email, **dados)
+                return redirect(url_for('main.email_confirma', cpf=dados['cpf']))
+            except:
+                flash("Infelizmente, por alguma razão, e email não pôde ser enviado.")
     return render_template('usuario.html', item=item)
 
 
