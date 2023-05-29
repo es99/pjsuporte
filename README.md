@@ -1,0 +1,2 @@
+OBS: É preciso criar no servidor de hospedagem da aplicação os arquivos .env e .env-dados, já que estes 
+arquivos não são enviados para o repositório remoto por conter dados sensíveis. Além disso, o docker-compose puxa informações das variáveis de ambiente dos arquivos informados.
