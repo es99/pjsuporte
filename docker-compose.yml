@@ -1,7 +1,7 @@
 version: '3'
 services:
   pjsuporte:
-    image: esouza99/pjsuporte:1.0
+    image: esouza99/pjsuporte:1.2.1
     ports:
       - "8000:8000"
     env_file:
