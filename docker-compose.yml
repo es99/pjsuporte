@@ -16,5 +16,5 @@ services:
     env_file:
       - .env-dados
     ports:
-      - "8001:3306"
+      - "3306:3306"
     restart: always
