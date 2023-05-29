@@ -35,7 +35,7 @@ def index():
                 return redirect(url_for('main.user', cpf_num=cpf_validado))
             flash('CPF não encontrado no sistema, cadastre com os dados necessários o novo CPF.')
         return redirect(url_for('main.index'))
-    return render_template('index.html', num_itens = contagem_de_itens, chamados_fechados = chamados_fechados_count)
+    return render_template('index.html', num_itens = contagem_de_itens)
 
 @main.route('/mail_confirma/<string:cpf>', methods=['GET', 'POST'])
 @login_required
