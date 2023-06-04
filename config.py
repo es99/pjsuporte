@@ -19,7 +19,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://flasky:engelsink666@127.0.0.1/pjsuporte"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://example:example@127.0.0.1/pjsuporte"
 
 
 class DockerConfig(Config):
