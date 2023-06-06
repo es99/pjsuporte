@@ -20,3 +20,27 @@ def send_email(to, **kwargs):
                         cpf=kwargs['cpf'], senha_ts=kwargs['senha_ts'], 
                         senha_sistema=kwargs['senha_sistema'])
     mail.send(msg)
+    
+class EmailInformativo():
+    """
+    Classe que contem métodos para envio de email
+    utilizando o template de envio informativo.
+    """
+    
+    def __init__(self, destinatarios):
+        """
+        :param destinatarios: A lista de destinatarios que receberá
+        o email informativo
+        """
+        self.destinatarios = destinatarios
+        self.subject = "[Informativo Infopublic] - Aviso"
+        self.sender = "noreply@suporte.infopublic.com.br"
+        
+    def envia_email(self, message):
+        """
+        :param message: A mensagem informativa que será atrelada ao template do email.
+        """
+        msg = Message(self.subject, sender=self.sender, recipients=self.destinatarios)
+        msg.body = "Este ainda é um texto plano"
+        msg.html = render_template('/email_informativo/modelo.html', message=message)
+        mail.send(msg)
