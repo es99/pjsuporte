@@ -1,6 +1,7 @@
 # Arquivos com dados sensiveis
 container_exec_bd.sh
 .env-dados
+env-smtp.sh
 variaveis.sh
 .env
 .DS_Store
