@@ -7,6 +7,7 @@ from infopublic_usuarios.extensions import migrate
 from infopublic_usuarios.extensions import bootstrap
 from infopublic_usuarios.extensions import login
 from infopublic_usuarios.extensions import email
+from infopublic_usuarios.extensions import admin
 
 
 def create_app(config_name):
@@ -21,5 +22,6 @@ def create_app(config_name):
     bootstrap.init_app(app)
     login.init_app(app)
     email.init_app(app)
+    admin.init_app(app)
     
     return app
