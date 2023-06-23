@@ -11,6 +11,9 @@
                     <span style="text-decoration: underline;">LGPD</span>
                 </a>
             </p>
+            <p>
+                Todos os campos são <span style="font-weight: bold;">obrigatórios</span>
+            </p>
         </div>
         <form class="box" method="POST">
 
@@ -18,7 +21,7 @@
                 <label class="label" for="nome">Nome Completo:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['nome'] }}" 
-                    name="nome" type="text" placeholder="Ex: José da Silva Júnior">
+                    name="nome" type="text" placeholder="Ex: José da Silva Júnior" required>
                 </div>
             </div>
 
@@ -26,7 +29,7 @@
                 <label class="label" for="cpf">CPF:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['cpf'] }}" 
-                    name="cpf" type="text">
+                    name="cpf" type="text" required>
                 </div>
             </div>
 
@@ -34,7 +37,7 @@
                 <label class="label" for="email">Email:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['email'] }}"
-                    name="email" type="email">
+                    name="email" type="email" required>
                 </div>
             </div>
 
@@ -42,7 +45,7 @@
                 <label class="label" for="tel">Celular: (com DDD)</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['tel'] }}"
-                    name="tel" type="text">
+                    name="tel" type="text" required>
                 </div>
             </div>
 
@@ -50,7 +53,7 @@
                 <label class="label" for="rg">RG:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['rg'] }}"
-                    name="rg" type="text" placeholder="Ex: 0000000-SSP-PB">
+                    name="rg" type="text" placeholder="Ex: 0000000-SSP-PB" required>
                 </div>
             </div>
 
@@ -58,42 +61,47 @@
                 <label class="label" for="entidade">Entidade:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['entidade'] }}"
-                    name="entidade" type="text" placeholder="Ex: PM Mogeiro">
+                    name="entidade" type="text" placeholder="Ex: PM Mogeiro" required>
                 </div>
             </div>
 
             <div class="field">
-                <label class="label" for="sistema">Qual sistema o usuário deverá ter acesso? (um ou mais)</label>
-                <label class="checkbox" for="PJPCTB">
-                    <input type="checkbox" id="PJPCTB" name="sistema" value="PJPCTB">
-                    PJPCTB
-                  </label>
-            
-                <label class="checkbox" for="PJFolha">
-                    <input type="checkbox" id="PJFolha" name="sistema" value="PJFolha">
-                    PJFolha
+                <label class="label">Quais sistemas o usuário terá acesso? 
+                    <br><span class="has-text-danger">Selecione pelo menos um sistema!</span></br>
                 </label>
-            
-                <label class="checkbox" for="Tributos">
-                    <input type="checkbox" id="Tributos" name="sistema" value="Tributos">
-                    Tributos
-                </label>
-            
-                <label class="checkbox" for="PJFrota">
-                    <input type="checkbox" id="PJFrota" name="sistema" value="PJFrota">
-                    PJFrota
-                </label>
-            
-                <label class="checkbox" for="PJCheque">
-                    <input type="checkbox" id="PJCheque" name="sistema" value="PJCheque">
-                    PJCheque
-                </label>
-            
-                <label class="checkbox" for="PJDoacao">
-                    <input type="checkbox" id="PJDoacao" name="sistema" value="PJDoacao">
-                    PJDoacao
-                </label>
-                </fieldset>
+                <div class="control">
+
+                    <label class="checkbox">
+                        <input type="checkbox" name="sistema" value="PJPCTB">
+                        PJPCTB/Contabilidade
+                    </label>
+
+                    <label class="checkbox">
+                        <input type="checkbox" name="sistema" value="PJFolha">
+                        PJFolha
+                    </label>
+
+                    <label class="checkbox">
+                        <input type="checkbox" name="sistema" value="Tributos">
+                        Tributos
+                    </label>
+
+                    <label class="checkbox">
+                        <input type="checkbox" name="sistema" value="PJFrota">
+                        PJFrota
+                    </label>
+
+                    <label class="checkbox">
+                        <input type="checkbox" name="sistema" value="PJCheque">
+                        PJCheque/Tesouraria
+                    </label>
+
+                    <label class="checkbox">
+                        <input type="checkbox" name="sistema" value="PJDoacao">
+                        PJDoação/Concessão
+                    </label>
+
+                </div>
             </div>
 
             <div class="field">
@@ -103,12 +111,12 @@
                 <label class="label" for="nome_solicitante">Nome do solicitante:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['nome_solicitante'] }}"
-                    name="nome_solicitante" type="text">
+                    name="nome_solicitante" type="text" required>
                 </div>
                 <label class="label" for="cpf_solicitante">CPF do solicitante:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['cpf_solicitante'] }}"
-                    name="cpf_solicitante" type="text">
+                    name="cpf_solicitante" type="text" required>
                 </div>
             </div>
 

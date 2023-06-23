@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 FLASK_APP="flasky.py"
 FLASK_DEBUG=1

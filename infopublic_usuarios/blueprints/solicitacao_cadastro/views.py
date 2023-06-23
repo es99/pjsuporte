@@ -23,11 +23,12 @@ def sol_cadastro():
         tel = request.form['tel']
         rg = request.form['rg']
         entidade = request.form['entidade']
-        sistema = request.form['sistema']
+        sistema = request.form.getlist('sistema')
+        sistema_string = ';'.join(sistema) #transforma a lista que está contida na variavel sistema em uma única string antes de passar para o banco
         nome_solicitante = request.form['nome_solicitante']
         cpf_solicitante = trata_cpf(request.form['cpf_solicitante'])
         solicitacao = Cadastros(nome=nome, cpf=cpf, tel=tel, email=email, data=data,
-                                rg=rg, entidade=entidade, sistema=sistema, nome_solicitante=nome_solicitante,
+                                rg=rg, entidade=entidade, sistema=sistema_string, nome_solicitante=nome_solicitante,
                                 cpf_solicitante=cpf_solicitante)
         db.session.add(solicitacao)
         db.session.commit()
