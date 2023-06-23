@@ -2,6 +2,7 @@ from flask import Flask
 from config import config
 from infopublic_usuarios.blueprints import main
 from infopublic_usuarios.blueprints import auth
+from infopublic_usuarios.blueprints import solicitacao_cadastro
 from infopublic_usuarios.extensions import db
 from infopublic_usuarios.extensions import migrate
 from infopublic_usuarios.extensions import bootstrap
@@ -17,6 +18,7 @@ def create_app(config_name):
     
     main.init_app(app)
     auth.init_app(app)
+    solicitacao_cadastro.init_app(app)
     db.init_app(app)
     migrate.init_app(app)
     bootstrap.init_app(app)

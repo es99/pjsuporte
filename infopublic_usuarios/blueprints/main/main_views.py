@@ -22,7 +22,6 @@ solicitacoes = dynamodb.Table('solicitacoes_cadastro')
 @login_required
 def index():
     contagem_de_itens = table.item_count
-    chamados_fechados_count = ChamadosTicket.query.filter_by(status=3).count()
     if request.method == 'POST':
         cpf = request.form['cpf']
         if not cpf:

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block title %}Novos Cadastros{% endblock %}
+
+{% block content %}
+<div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+        <div class="box">
+            <p>
+                Respeitamos a política de privacidade de dados sensíveis
+                baseado na <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm", target="_blank">
+                    <span style="text-decoration: underline;">LGPD</span>
+                </a>
+            </p>
+        </div>
+        <form class="box" method="POST">
+
+            <div class="field">
+                <label class="label" for="nome">Nome Completo:</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['nome'] }}" 
+                    name="nome" type="text" placeholder="Ex: José da Silva Júnior">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="cpf">CPF:</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['cpf'] }}" 
+                    name="cpf" type="text">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="email">Email:</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['email'] }}"
+                    name="email" type="email">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="tel">Celular: (com DDD)</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['tel'] }}"
+                    name="tel" type="text">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="rg">RG:</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['rg'] }}"
+                    name="rg" type="text" placeholder="Ex: 0000000-SSP-PB">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="entidade">Entidade:</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['entidade'] }}"
+                    name="entidade" type="text" placeholder="Ex: PM Mogeiro">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="sistema">Qual sistema o usuário deverá ter acesso? (um ou mais)</label>
+                <label class="checkbox" for="PJPCTB">
+                    <input type="checkbox" id="PJPCTB" name="sistema" value="PJPCTB">
+                    PJPCTB
+                  </label>
+            
+                <label class="checkbox" for="PJFolha">
+                    <input type="checkbox" id="PJFolha" name="sistema" value="PJFolha">
+                    PJFolha
+                </label>
+            
+                <label class="checkbox" for="Tributos">
+                    <input type="checkbox" id="Tributos" name="sistema" value="Tributos">
+                    Tributos
+                </label>
+            
+                <label class="checkbox" for="PJFrota">
+                    <input type="checkbox" id="PJFrota" name="sistema" value="PJFrota">
+                    PJFrota
+                </label>
+            
+                <label class="checkbox" for="PJCheque">
+                    <input type="checkbox" id="PJCheque" name="sistema" value="PJCheque">
+                    PJCheque
+                </label>
+            
+                <label class="checkbox" for="PJDoacao">
+                    <input type="checkbox" id="PJDoacao" name="sistema" value="PJDoacao">
+                    PJDoacao
+                </label>
+                </fieldset>
+            </div>
+
+            <div class="field">
+                <label class="label"> 
+                    Nos informe, abaixo, quem solicitou/autorizou o cadastro do usuário.
+                </label>
+                <label class="label" for="nome_solicitante">Nome do solicitante:</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['nome_solicitante'] }}"
+                    name="nome_solicitante" type="text">
+                </div>
+                <label class="label" for="cpf_solicitante">CPF do solicitante:</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['cpf_solicitante'] }}"
+                    name="cpf_solicitante" type="text">
+                </div>
+            </div>
+
+            <button class="button is-primary" type="submit">Solicitar Cadastro</button>
+            <button class="button is-info" type="reset">Resetar dados</button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
