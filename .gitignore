@@ -6,6 +6,7 @@ variaveis.sh
 .env
 .DS_Store
 .csv_to_dynamodb.py
+pjsuporte.yml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
