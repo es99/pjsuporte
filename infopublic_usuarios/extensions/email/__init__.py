@@ -11,7 +11,7 @@ def init_app(app):
 #def send_mail(to, nome, cpf, senha, senha_sistema):
 def send_email(to, **kwargs):
     subject = '[Suporte Infopublic] - Credenciais de Acesso'
-    sender = 'Suporte <suporte@infopublic.com.br>'
+    sender = 'Suporte <noreply@suporte.infopublic.com.br>'
 
     msg = Message(subject, sender=sender, recipients=[to])
     msg.body = msg_textplain.mensagem_text(nome=kwargs['nome'], cpf=kwargs['cpf'],

@@ -9,6 +9,25 @@ db = SQLAlchemy()
 def init_app(app):
     db.init_app(app)
 
+
+class Cadastros(db.Model):
+    __tablename__ = "solicitacao_cadastros"
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(120), unique=False, index=True, nullable=False)
+    cpf = db.Column(db.String(64), unique=False, nullable=False, index=True)
+    email = db.Column(db.String(120), index=True, nullable=False)
+    tel = db.Column(db.String(64), index=True, nullable=False)
+    rg = db.Column(db.String(64), index=True, nullable=False)
+    entidade = db.Column(db.String(120), nullable=False)
+    sistema = db.Column(db.String(64), unique=False, index=True, nullable=False)
+    nome_solicitante = db.Column(db.String(120), unique=False, index=True, nullable=False)
+    cpf_solicitante = db.Column(db.String(120), unique=False, index=True, nullable=False)
+    data = db.Column(db.DateTime)
+
+    def __repr__(self):
+        return f'id de solicitação: {self.id}'
+
+
 class ChamadosTicket(db.Model):
     __tablename__ = "chamados"
     id = db.Column(db.Integer, primary_key=True)

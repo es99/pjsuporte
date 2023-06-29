@@ -1,9 +1,38 @@
 from flask_admin import Admin
+from flask import redirect, url_for, request
 from flask_admin.contrib.sqla import ModelView
-from infopublic_usuarios.extensions.db import db, User
+from flask_login import current_user
+from infopublic_usuarios.extensions.db import db, User, Cadastros
 
-admin = Admin()
-admin.add_view(ModelView(User, db.session))
+admin = Admin(name='Fila de usuários')
+
+
+class UserView(ModelView):
+    can_delete = False
+    can_edit = False
+    can_create = False
+
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for('auth.login', next=request.url))
+
+
+class CadastroView(ModelView):
+    can_view_details = True
+    can_edit = False
+    can_create = False
+
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for('auth.login', next=request.url))
+
+
+admin.add_view(UserView(User, db.session))
+admin.add_view(CadastroView(Cadastros, db.session))
 
 
 def init_app(app):

@@ -22,7 +22,6 @@ solicitacoes = dynamodb.Table('solicitacoes_cadastro')
 @login_required
 def index():
     contagem_de_itens = table.item_count
-    chamados_fechados_count = ChamadosTicket.query.filter_by(status=3).count()
     if request.method == 'POST':
         cpf = request.form['cpf']
         if not cpf:
@@ -81,11 +80,13 @@ def cadastro():
         sistema = request.form.getlist('sistema')
         tel = request.form['tel']
         rg = request.form['rg']
+        nome_solicitante = request.form['nome_solicitante']
+        cpf_solicitante = request.form['cpf_solicitante']
         senha_ts = request.form['senha_ts']
         senha_sistema = request.form['senha_sistema']
         data_cadastro = data
-        usuario = dict(cpf=cpf, nome=nome, email=email, tel=tel,
-                        rg=rg, senha_ts=senha_ts, senha_sistema=senha_sistema,
+        usuario = dict(cpf=cpf, nome=nome, email=email, tel=tel, nome_solicitante=nome_solicitante,
+                        rg=rg, senha_ts=senha_ts, senha_sistema=senha_sistema, cpf_solicitante=cpf_solicitante,
                             data_cadastro=data_cadastro, entidade=entidade,
                             sistema=sistema)
         try:                    

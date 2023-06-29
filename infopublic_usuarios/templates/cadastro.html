@@ -7,21 +7,21 @@
     <div class="field">
         <label class="label" for="cpf">CPF:</label>
         <div class="control">
-            <input class="input" value="{{ request.form['cpf'] }}"  name="cpf" type="text">
+            <input class="input" value="{{ request.form['cpf'] }}"  name="cpf" type="text" required>
         </div>
     </div>
 
     <div class="field">
         <label class="label" for="nome">Nome:</label>
         <div class="control">
-            <input class="input" value="{{ request.form['nome'] }}" name="nome" type="text">
+            <input class="input" value="{{ request.form['nome'] }}" name="nome" type="text" required>
         </div>
     </div>
 
     <div class="field">
         <label class="label" for="email">Email:</label>
         <div class="control">
-            <input class="input" value="{{ request.form['email'] }}" name="email" type="email">
+            <input class="input" value="{{ request.form['email'] }}" name="email" type="email" required>
         </div>
     </div>
 
@@ -65,28 +65,42 @@
     <div class="field">
         <label class="label" for="tel">Tel:</label>
         <div class="control">
-            <input class="input" value="{{ request.form['tel'] }}" name="tel" type="text">
+            <input class="input" value="{{ request.form['tel'] }}" name="tel" type="text" required>
         </div>
     </div>
 
     <div class="field">
         <label class="label" for="rg">RG:</label>
         <div class="control">
-            <input class="input" value="{{ request.form['rg'] }}" name="rg" type="text">
+            <input class="input" value="{{ request.form['rg'] }}" name="rg" type="text" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="nome_solicitante">Nome do solicitante:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['nome_solicitante'] }}" name="nome_solicitante" type="text" required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="cpf_solicitante">CPF do solicitante:</label>
+        <div class="control">
+            <input class="input" value="{{ request.form['cpf_solicitante'] }}" name="cpf_solicitante" type="text" required>
         </div>
     </div>
 
     <div class="field">
         <label class="label" for="senha_ts">Senha TS:</label>
         <div class="control">
-            <input class="input" value="{{ request.form['senha_ts'] }}" name="senha_ts" type="text">
+            <input class="input" value="{{ request.form['senha_ts'] }}" name="senha_ts" type="text" required>
         </div>
     </div>
 
     <div class="field">
         <label class="label" for="senha_sistema">Senha Sistema:</label>
         <div class="control">
-            <input class="input" value="{{ request.form['senha_sistema'] }}" name="senha_sistema" type="text">
+            <input class="input" value="{{ request.form['senha_sistema'] }}" name="senha_sistema" type="text" required>
         </div>
     </div>
 
