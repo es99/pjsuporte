@@ -22,6 +22,7 @@ class Cadastros(db.Model):
     sistema = db.Column(db.String(64), unique=False, index=True, nullable=False)
     nome_solicitante = db.Column(db.String(120), unique=False, index=True, nullable=False)
     cpf_solicitante = db.Column(db.String(120), unique=False, index=True, nullable=False)
+    permissao = db.Column(db.String(64), unique=False, index=True, nullable=False)
     data = db.Column(db.DateTime)
 
     def __repr__(self):

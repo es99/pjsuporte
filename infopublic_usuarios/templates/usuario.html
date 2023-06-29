@@ -11,7 +11,10 @@
               <p class="subtitle" style="color: black;">
                 login: infopublicpb\{{ item['cpf'] }}<br>
                 senha TS: {{ item['senha_ts'] }} <br>
-                senha do sistema: {{ item['senha_sistema'] }}
+                senha do sistema: {{ item['senha_sistema'] }}<br>
+                {% if item['permissao'] %}
+                  Permissão: {{ item['permissao'] }}
+                {% endif %}
               </p>
               <p class="subtitle" style="color: gray;">
                 {% if item['entidade'] %} {{ item['entidade'] }} - {% endif %}

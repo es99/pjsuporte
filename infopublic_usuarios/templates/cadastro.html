@@ -31,7 +31,11 @@
             <input class="input" value="{{ request.form['entidade'] }}" name="entidade" type="text">
         </div>
     </div>
+
     <fieldset>
+        <div class="field">
+            <label class="label">Qual(is) sistema(s) o usuário terá acesso?</label>
+        </div>
     <label class="checkbox" for="PJPCTB">
         <input type="checkbox" id="PJPCTB" name="sistema" value="PJPCTB">
         PJPCTB
@@ -62,6 +66,25 @@
         PJDoacao
     </label>
     </fieldset>
+
+    <div class="field">
+        <label class="label">Permissão do usuário</label>
+        <div class="control">
+            <label class="radio">
+                <input type="radio" name="permissao" value="Administrador">
+                Administrador
+            </label>
+            <label class="radio">
+                <input type="radio" name="permissao" value="Comum" checked>
+                Usuário Comum
+            </label>
+            <label class="radio">
+                <input type="radio" name="permissao" value="Consulta">
+                Apenas Consulta
+            </label>
+        </div>
+    </div>
+
     <div class="field">
         <label class="label" for="tel">Tel:</label>
         <div class="control">

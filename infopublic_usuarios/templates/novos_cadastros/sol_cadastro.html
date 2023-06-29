@@ -81,7 +81,7 @@
             </div>
 
             <div class="field">
-                <label class="label">Quais sistemas o usuário terá acesso? 
+                <label class="label">Qual(is) sistema(s) o usuário terá acesso? 
                     <br><span class="has-text-danger">Selecione pelo menos um sistema!</span></br>
                 </label>
                 <div class="control">
@@ -120,15 +120,33 @@
             </div>
 
             <div class="field">
+                <label class="label">Permissão do usuário</label>
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="permissao" value="Administrador">
+                        Administrador
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="permissao" value="Comum" checked>
+                        Usuário Comum
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="permissao" value="Consulta">
+                        Apenas Consulta
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
                 <label class="label"> 
                     Nos informe, abaixo, quem solicitou/autorizou o cadastro do usuário.
                 </label>
-                <label class="label" for="nome_solicitante">Nome do solicitante:</label>
+                <label class="label" for="nome_solicitante">Nome do autorizador:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['nome_solicitante'] }}"
                     name="nome_solicitante" type="text" required>
                 </div>
-                <label class="label" for="cpf_solicitante">CPF do solicitante:</label>
+                <label class="label" for="cpf_solicitante">CPF do autorizador:</label>
                 <div class="control">
                     <input class="input" value="{{ request.form['cpf_solicitante'] }}"
                     name="cpf_solicitante" type="text" required>

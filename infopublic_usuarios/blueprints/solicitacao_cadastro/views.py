@@ -27,9 +27,10 @@ def sol_cadastro():
         sistema_string = ';'.join(sistema) #transforma a lista que está contida na variavel sistema em uma única string antes de passar para o banco
         nome_solicitante = request.form['nome_solicitante']
         cpf_solicitante = trata_cpf(request.form['cpf_solicitante'])
+        permissao = request.form['permissao']
         solicitacao = Cadastros(nome=nome, cpf=cpf, tel=tel, email=email, data=data,
                                 rg=rg, entidade=entidade, sistema=sistema_string, nome_solicitante=nome_solicitante,
-                                cpf_solicitante=cpf_solicitante)
+                                cpf_solicitante=cpf_solicitante, permissao=permissao)
         db.session.add(solicitacao)
         db.session.commit()
         flash(f"A solicitação de cadastro foi enviada com sucesso, pedimos que aguarde o email com as credenciais")
