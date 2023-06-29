@@ -80,11 +80,13 @@ def cadastro():
         sistema = request.form.getlist('sistema')
         tel = request.form['tel']
         rg = request.form['rg']
+        nome_solicitante = request.form['nome_solicitante']
+        cpf_solicitante = request.form['cpf_solicitante']
         senha_ts = request.form['senha_ts']
         senha_sistema = request.form['senha_sistema']
         data_cadastro = data
-        usuario = dict(cpf=cpf, nome=nome, email=email, tel=tel,
-                        rg=rg, senha_ts=senha_ts, senha_sistema=senha_sistema,
+        usuario = dict(cpf=cpf, nome=nome, email=email, tel=tel, nome_solicitante=nome_solicitante,
+                        rg=rg, senha_ts=senha_ts, senha_sistema=senha_sistema, cpf_solicitante=cpf_solicitante,
                             data_cadastro=data_cadastro, entidade=entidade,
                             sistema=sistema)
         try:                    

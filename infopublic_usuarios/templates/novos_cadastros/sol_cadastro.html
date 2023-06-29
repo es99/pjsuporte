@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Novos Cadastros{% endblock %}
 
+{% block navigation %}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+     <a class="navbar-item" href="https://infopublic.com.br">
+      <img src="{{ url_for('static', filename='img/LogoSitePequena.png') }}">
+     </a>
+    </div>
+
+    <div class="navbar-menu">
+        
+    </div>
+    </div>
+  </nav>
+{% endblock %}
+
 {% block content %}
 <div class="columns">
     <div class="column is-half is-offset-one-quarter">

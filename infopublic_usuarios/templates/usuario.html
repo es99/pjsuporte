@@ -24,6 +24,10 @@
                 {{ item['tel'] }}<br>
                 {% if item['data_cadastro'] %} 
                   data do cadastro: {{ item['data_cadastro'] }}
+                {% endif %}<br><br>
+                {% if item['nome_solicitante'] %}
+                  Solicitante do cadastro: {{ item['nome_solicitante'] }}<br>
+                  CPF do solicitante: {{ item['cpf_solicitante'] }}
                 {% endif %}
               </p>
             </div>
