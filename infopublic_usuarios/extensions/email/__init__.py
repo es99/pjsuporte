@@ -20,3 +20,11 @@ def send_email(to, **kwargs):
                         cpf=kwargs['cpf'], senha_ts=kwargs['senha_ts'], 
                         senha_sistema=kwargs['senha_sistema'])
     mail.send(msg)
+    
+def send_email_informativo(lista_emails, msg):
+    subject = '[Informativo Infopublic] - Aviso'
+    sender = 'Informativo <noreply@suporte.infopublic.com.br>'
+    
+    msg = Message(subject, sender=sender, recipients=lista_emails)
+    msg.body = msg_textplain.msg_informativo_text(msg)
+    msg.html = 

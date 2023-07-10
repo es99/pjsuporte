@@ -19,3 +19,6 @@ def mensagem_text(**kwargs):
     """
 
     return msg
+
+def msg_informativo_text(msg):
+    return msg
