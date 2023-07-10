@@ -9,6 +9,16 @@ db = SQLAlchemy()
 def init_app(app):
     db.init_app(app)
 
+class Informativos(db.Model):
+    __tablename__ = "emails_informativos"
+    id = db.Column(db.Integer, primary_key=True)
+    mensagem = db.Column(db.Text, nullable=False)
+    enviante = db.Column(db.String(64), index=True, nullable=False)
+    data = db.Column(db.DateTime)
+    
+    def __repr__(self):
+        return f'id do envio: {self.id}'
+
 
 class Cadastros(db.Model):
     __tablename__ = "solicitacao_cadastros"
