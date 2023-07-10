@@ -28,20 +28,21 @@ class EmailInformativo():
     utilizando o template de envio informativo.
     """
     
-    def __init__(self, destinatarios):
+    def __init__(self, destinatarios, message):
         """
         :param destinatarios: A lista de destinatarios que receberá
         o email informativo
         """
         self.destinatarios = destinatarios
+        self.message = message
         self.subject = "[Informativo Infopublic] - Aviso"
         self.sender = "noreply@suporte.infopublic.com.br"
         
-    def envia_email(self, message):
+    def envia_email(self):
         """
         :param message: A mensagem informativa que será atrelada ao template do email.
         """
         msg = Message(self.subject, sender=self.sender, recipients=self.destinatarios)
-        msg.body = message
-        msg.html = render_template('/informativos/modelo.html', message=message)
+        msg.body = self.message
+        msg.html = render_template('/informativos/modelo.html', message=self.message)
         mail.send(msg)
