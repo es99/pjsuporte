@@ -81,7 +81,7 @@ def cadastro():
         tel = request.form['tel']
         rg = request.form['rg']
         nome_solicitante = request.form['nome_solicitante']
-        cpf_solicitante = request.form['cpf_solicitante']
+        cpf_solicitante = trata_cpf(request.form['cpf_solicitante'])
         senha_ts = request.form['senha_ts']
         senha_sistema = request.form['senha_sistema']
         permissao = request.form['permissao']
