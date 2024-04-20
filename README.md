@@ -20,6 +20,7 @@
 
 ##### v1.3.6
 - Inserido a opção _checkbox_ "Farmácia" na solicitação de cadastro de usuários
+##### v1.3.7
 - Na mesma página de solicitação de cadastro (/solicita_cadastro) alterado Entidade -> Município, a localização do campo _field_ também foi alterada para sair de baixo do campo _RG_ pois os usuários estavam confundindo _Entidade_ com _orgão expedidor_.
 
 OBS: É preciso criar no servidor de hospedagem da aplicação os arquivos .env e .env-dados, já que estes 
