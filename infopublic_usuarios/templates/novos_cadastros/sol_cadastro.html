@@ -73,14 +73,6 @@
             </div>
 
             <div class="field">
-                <label class="label" for="entidade">Entidade:</label>
-                <div class="control">
-                    <input class="input" value="{{ request.form['entidade'] }}"
-                    name="entidade" type="text" placeholder="Ex: PM Mogeiro" required>
-                </div>
-            </div>
-
-            <div class="field">
                 <label class="label">Qual(is) sistema(s) o usuário terá acesso? 
                     <br><span class="has-text-danger">Selecione pelo menos um sistema!</span></br>
                 </label>
@@ -116,6 +108,19 @@
                         PJDoação/Concessão
                     </label>
 
+                    <label class="checkbox">
+                        <input type="checkbox" name="sistema" value="Farmacia">
+                        Farmácia
+                    </label>
+
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="entidade">Município:</label>
+                <div class="control">
+                    <input class="input" value="{{ request.form['entidade'] }}"
+                    name="entidade" type="text" placeholder="Ex: PM Mogeiro" required>
                 </div>
             </div>
 

@@ -18,5 +18,9 @@
 5. ```flask db upgrade``` (para atualizar as tabelas do banco de dados)
 6. ```flask run --host 0.0.0.0 --port 8000``` para iniciar o servidor flask na porta 8000 rodando a aplicação no ambiente de desenvolvimento
 
+##### v1.3.6
+- Inserido a opção _checkbox_ "Farmácia" na solicitação de cadastro de usuários
+- Na mesma página de solicitação de cadastro (/solicita_cadastro) alterado Entidade -> Município, a localização do campo _field_ também foi alterada para sair de baixo do campo _RG_ pois os usuários estavam confundindo _Entidade_ com _orgão expedidor_.
+
 OBS: É preciso criar no servidor de hospedagem da aplicação os arquivos .env e .env-dados, já que estes 
 arquivos não são enviados para o repositório remoto por conter dados sensíveis. Além disso, o docker-compose puxa informações das variáveis de ambiente dos arquivos informados.
