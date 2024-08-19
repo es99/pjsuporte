@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}download-sape{% endblock %}
+
+{% block navigation %}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+     <a class="navbar-item" href="https://infopublic.com.br">
+      <img src="{{ url_for('static', filename='img/LogoSitePequena.png') }}">
+     </a>
+    </div>
+
+    <div class="navbar-menu">
+        
+    </div>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="box">
+                <p>
+                    A partir do dia <span style="font-weight: bold;">20/08/2024</span>, Sapé-PB passará a ser acessada através de um novo servidor,
+                    para isso, basta utilizar o novo ícone de acesso disponibilizado abaixo:
+                </p>
+
+                <p style="text-align: center;">
+                    <a href="https://infopublic-downloads.s3.sa-east-1.amazonaws.com/sape_acesso.rdp", target="_blank">
+                        <span style="text-decoration: underline; font-weight: bold;">clique aqui</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

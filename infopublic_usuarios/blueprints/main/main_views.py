@@ -179,3 +179,7 @@ def fila_chamados():
 def lista_chamados_fechados():
     data = ChamadosTicket.query.filter_by(status=3).all()
     return render_template('lista_chamados_fechados.html', data=data)
+
+@main.route('/sape')
+def sape():
+    return render_template('sape.html')
